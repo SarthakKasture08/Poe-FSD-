@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="about.html">About Us</a></li>
+
+        <li class="dropdown">
+            <button onclick="toggleMenu()">Departments ▼</button>
+            <ul id="deptMenu" class="dropdown-content">
+                <li><a href="cse.html">CSE</a></li>
+                <li><a href="it.html">IT</a></li>
+                <li><a href="entc.html">ENTC</a></li>
+                <li><a href="ece.html">ECE</a></li>
+                <li><a href="civil.html">Civil</a></li>
+                <li><a href="mech.html">Mech</a></li>
+            </ul>
+        </li>
+
+        <li><a href="syllabus.html">Syllabus</a></li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</nav>
+<h1>Welcome to College</h1>
+
+<div class="slider">
+    <img id="slideImage" src="" />
+    <br>
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="about.html">About Us</a></li>
+
+        <li class="dropdown">
+            <button onclick="toggleMenu()">Departments ▼</button>
+            <ul id="deptMenu" class="dropdown-content">
+                <li><a href="cse.html">CSE</a></li>
+                <li><a href="it.html">IT</a></li>
+                <li><a href="entc.html">ENTC</a></li>
+                <li><a href="ece.html">ECE</a></li>
+                <li><a href="civil.html">Civil</a></li>
+                <li><a href="mech.html">Mech</a></li>
+            </ul>
+        </li>
+
+        <li><a href="syllabus.html">Syllabus</a></li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</nav>
+<h2>Contact Us</h2>
+
+<form onsubmit="return validateForm()"
+      action="mailto:your@email.com"
+      method="post"
+      enctype="text/plain">
+
+    Name: <input type="text" id="userName"><br><br>
+    Email: <input type="text" id="userEmail"><br><br>
+    Message: <textarea id="userMsg"></textarea><br><br>
+
+    <button type="submit">Send</button>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>
