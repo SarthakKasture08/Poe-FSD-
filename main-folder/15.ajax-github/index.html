@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>GitHub User Info</h2>
+
+<input type="text" id="userInput" placeholder="Enter username">
+<button onclick="loadData()">Search</button>
+
+<h3 id="output"></h3>
+
+<script>
+
+function loadData() {
+
+    var usernameValue = document.getElementById("userInput").value;
+
+    var requestObject = new XMLHttpRequest();
+
+    requestObject.open("GET", "https://api.github.com/users/" + usernameValue, true);
+
+    requestObject.onload = function () {
+
+        if (requestObject.status == 200) {
+
+            var userData = JSON.parse(requestObject.responseText);
+
+            document.getElementById("output").innerHTML =
+                "Name: " + userData.login +
+                "<br>Public Repos: " + userData.public_repos;
+
+        } else {
+
+            document.getElementById("output").innerHTML =
+                "User not found";
+
+        }
+    };
+
+    requestObject.send();
+}
+
+</script>
+
+</body>
+</html>
