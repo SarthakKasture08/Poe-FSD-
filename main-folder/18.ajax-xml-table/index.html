@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Employee Data</h2>
+
+<button onclick="loadXML()">Load XML Data</button>
+
+<table border="1" id="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Start Date</th>
+        <th>Salary</th>
+    </tr>
+</table>
+
+<script>
+function loadXML() {
+
+    var request = new XMLHttpRequest();
+
+    request.open("GET", "data.xml", true);
+
+    request.onload = function () {
+
+        var xml = request.responseXML;
+
+        var employees = xml.getElementsByTagName("employee");
+
+        var table = document.getElementById("table");
+
+        for (var i = 0; i < employees.length; i++) {
+
+            var row = table.insertRow();
+
+            row.insertCell(0).innerHTML = employees[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+            row.insertCell(1).innerHTML = employees[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            row.insertCell(2).innerHTML = employees[i].getElementsByTagName("dob")[0].childNodes[0].nodeValue;
+            row.insertCell(3).innerHTML = employees[i].getElementsByTagName("start_date")[0].childNodes[0].nodeValue;
+            row.insertCell(4).innerHTML = employees[i].getElementsByTagName("salary")[0].childNodes[0].nodeValue;
+        }
+    };
+
+    request.send();
+}
+</script>
+
+</body>
+</html>

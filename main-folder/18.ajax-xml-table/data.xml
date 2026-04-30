@@ -1,0 +1,17 @@
+<employees>
+    <employee>
+        <id>1</id>
+        <name>Aarya</name>
+        <dob>2004-01-10</dob>
+        <start_date>2023-06-01</start_date>
+        <salary>30000</salary>
+    </employee>
+
+    <employee>
+        <id>2</id>
+        <name>Rahul</name>
+        <dob>2003-05-15</dob>
+        <start_date>2022-08-10</start_date>
+        <salary>35000</salary>
+    </employee>
+</employees>
