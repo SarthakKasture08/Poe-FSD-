@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Registration Form</title>
+    <script>
+        function validateForm() {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let age = document.getElementById("age").value;
+
+            if (name == "" || email == "" || age == "") {
+                alert("All fields are mandatory");
+                return false;
+            }
+
+            if (age < 18) {
+                alert("Age must be 18 or above");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Exam Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+    Name: <input type="text" id="name"><br><br>
+
+    Email: <input type="email" id="email"><br><br>
+
+    Age: <input type="number" id="age"><br><br>
+
+    Gender:
+    <input type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female<br><br>
+
+    Course:
+    <select>
+        <option value="">Select</option>
+        <option>CSE</option>
+        <option>IT</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
