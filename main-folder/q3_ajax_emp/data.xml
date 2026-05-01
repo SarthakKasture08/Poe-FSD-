@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<employees>
+
+    <employee>
+        <id>1</id>
+        <name>Rahul</name>
+        <dob>2002-01-10</dob>
+        <start-date>2024-01-01</start-date>
+        <salary>50000</salary>
+    </employee>
+
+    <employee>
+        <id>2</id>
+        <name>Sneha</name>
+        <dob>2001-05-12</dob>
+        <start-date>2023-06-01</start-date>
+        <salary>60000</salary>
+    </employee>
+
+</employees>
