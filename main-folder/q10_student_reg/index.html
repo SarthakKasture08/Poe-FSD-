@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<input type="text" id="name" placeholder="Name"><br>
+<input type="date" id="dob"><br>
+
+<label>Gender:</label>
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<br><br>
+
+<input type="email" id="email" placeholder="Email"><br>
+<input type="text" id="address" placeholder="Address"><br>
+
+<select id="school">
+    <option value="">Select School</option>
+    <option>Engineering</option>
+    <option>Science</option>
+    <option>Commerce</option>
+</select><br>
+
+<input type="text" id="department" placeholder="Department"><br>
+<input type="text" id="course" placeholder="Course"><br>
+<input type="text" id="phone" placeholder="Mobile Number"><br>
+
+<button onclick="submitForm()">Submit</button>
+<button type="reset">Reset</button>
+
+<script>
+function submitForm() {
+
+    let gender = document.querySelector('input[name="gender"]:checked');
+
+    let data = {
+        name: document.getElementById("name").value,
+        dob: document.getElementById("dob").value,
+        gender: gender ? gender.value : "",
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value,
+        school: document.getElementById("school").value,
+        department: document.getElementById("department").value,
+        course: document.getElementById("course").value,
+        phone: document.getElementById("phone").value
+    };
+
+    fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => alert(data.message));
+}
+</script>
+
+</body>
+</html>
