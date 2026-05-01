@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub User Info</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f6f9;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+        }
+
+        .box {
+            background: white;
+            padding: 10px;
+            margin: 10px auto;
+            width: 60%;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+<h2>GitHub User Search</h2>
+
+<input type="text" id="username" placeholder="Enter GitHub Username">
+<button onclick="getUser()">Search</button>
+
+<div id="userData"></div>
+<div id="repos"></div>
+
+<script>
+
+function getUser() {
+
+    let username = document.getElementById("username").value;
+
+    let userDiv = document.getElementById("userData");
+    let repoDiv = document.getElementById("repos");
+
+    userDiv.innerHTML = "";
+    repoDiv.innerHTML = "";
+
+    let xhttp = new XMLHttpRequest();
+
+    let url = "https://api.github.com/users/" + username;
+
+    xhttp.open("GET", url, true);
+
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4) {
+
+            // ❌ USER NOT FOUND
+            if (this.status == 404) {
+                userDiv.innerHTML = "<p>User not found</p>";
+                return;
+            }
+
+            if (this.status == 200) {
+
+                let data = JSON.parse(this.responseText);
+
+                // ✔ PRINT USER
+                userDiv.innerHTML = `
+                    <div class="box">
+                        <h3>${data.login}</h3>
+                        <p>Followers: ${data.followers}</p>
+                        <p>Public Repos: ${data.public_repos}</p>
+                    </div>
+                `;
+
+                // 🔹 CALL REPO API
+                getRepos(username);
+            }
+        }
+    };
+
+    xhttp.send();
+}
+
+
+// 🔹 FETCH REPOSITORIES
+function getRepos(username) {
+
+    let repoDiv = document.getElementById("repos");
+
+    let xhttp = new XMLHttpRequest();
+
+    let url = "https://api.github.com/users/" + username + "/repos";
+
+    xhttp.open("GET", url, true);
+
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            let repos = JSON.parse(this.responseText);
+
+            let html = "<div class='box'><h3>Repositories</h3>";
+
+            for (let i = 0; i < repos.length; i++) {
+                html += "<p>" + repos[i].name + "</p>";
+            }
+
+            html += "</div>";
+
+            repoDiv.innerHTML = html;
+        }
+    };
+
+    xhttp.send();
+}
+
+</script>
+
+</body>
+</html>
