@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alumni Registration</title>
+
+<script>
+function validateForm() {
+
+    let name = document.getElementById("name").value;
+    let mobile = document.getElementById("mobile").value;
+    let address = document.getElementById("address").value;
+    let age = document.getElementById("age").value;
+    let year = document.getElementById("year").value;
+    let branch = document.getElementById("branch").value;
+    let org = document.getElementById("org").value;
+    let designation = document.getElementById("designation").value;
+
+    // Empty check
+    if (name=="" || mobile=="" || address=="" || age=="" || year=="" || branch=="" || org=="" || designation=="") {
+        alert("All fields are mandatory");
+        return false;
+    }
+
+    // Name validation (only letters)
+    let namePattern = /^[A-Za-z ]+$/;
+    if (!name.match(namePattern)) {
+        alert("Name must contain only letters");
+        return false;
+    }
+
+    // Mobile validation (10 digits)
+    let mobilePattern = /^[0-9]{10}$/;
+    if (!mobile.match(mobilePattern)) {
+        alert("Enter valid 10-digit mobile number");
+        return false;
+    }
+
+    // Age validation
+    if (age < 18 || age > 100) {
+        alert("Enter valid age (18–100)");
+        return false;
+    }
+
+    // Year validation
+    if (year < 2000 || year > 2030) {
+        alert("Enter valid passout year");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Alumni Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+Full Name: <input type="text" id="name"><br><br>
+
+Mobile Number: <input type="text" id="mobile"><br><br>
+
+Address: <input type="text" id="address"><br><br>
+
+Age: <input type="number" id="age"><br><br>
+
+Passout Year: <input type="number" id="year"><br><br>
+
+Branch: <input type="text" id="branch"><br><br>
+
+Current Working Organization: <input type="text" id="org"><br><br>
+
+Current Designation: <input type="text" id="designation"><br><br>
+
+<input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>
