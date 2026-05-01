@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumni Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Alumni Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Full Name"><br>
+<input type="text" id="phone" placeholder="Mobile Number"><br>
+<textarea id="address" placeholder="Address"></textarea><br>
+<input type="number" id="age" placeholder="Age"><br>
+<input type="number" id="year" placeholder="Passout Year"><br>
+
+<select id="branch">
+    <option value="">Select Branch</option>
+    <option>CSE</option>
+    <option>IT</option>
+    <option>ENTC</option>
+    <option>MECH</option>
+    <option>CIVIL</option>
+</select><br>
+
+<input type="text" id="org" placeholder="Current Organization"><br>
+<input type="text" id="designation" placeholder="Current Designation"><br>
+
+<button type="submit">Submit</button>
+<button type="reset">Clear</button>
+
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html>
