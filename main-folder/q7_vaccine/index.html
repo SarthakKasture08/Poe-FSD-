@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vaccination Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Corona Vaccination Registration</h2>
+
+<form onsubmit="return validateForm()">
+
+    <input type="text" id="name" placeholder="Full Name"><br>
+
+    <input type="text" id="phone" placeholder="Mobile Number"><br>
+
+    <textarea id="address" placeholder="Address"></textarea><br>
+
+    <input type="number" id="age" placeholder="Age"><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    <input type="text" id="aadhaar" placeholder="Aadhaar Number"><br>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Clear</button>
+
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html> 
