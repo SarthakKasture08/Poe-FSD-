@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-PASS Form</title>
+</head>
+<body>
+
+<h2>Corona Curfew E-Pass</h2>
+
+<input type="text" id="name" placeholder="Full Name"><br>
+<input type="text" id="phone" placeholder="Mobile Number"><br>
+<input type="text" id="address" placeholder="Address"><br>
+<input type="text" id="purpose" placeholder="Purpose"><br>
+<input type="text" id="vehicle" placeholder="Vehicle Number"><br>
+
+<button onclick="submitForm()">Submit</button>
+
+<script>
+function submitForm() {
+
+    let data = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        purpose: document.getElementById("purpose").value,
+        vehicle: document.getElementById("vehicle").value
+    };
+
+    fetch("http://localhost:3000/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => alert(data.message));
+}
+</script>
+
+</body>
+</html>
