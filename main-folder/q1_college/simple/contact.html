@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
+
 <script>
 function validateForm() {
 
@@ -15,20 +17,31 @@ return false;
 return true;
 }
 </script>
-</head>
 
+</head>
 <body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="department.html">Department</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
 
 <h2>Contact Us</h2>
 
-<form onsubmit="return validateForm()">
+<form action="mailto:college@gmail.com" onsubmit="return validateForm()">
 
-Name: <input type="text" id="name"><br><br>
-Email: <input type="email" id="email"><br><br>
+<input type="text" id="name" placeholder="Enter Name"><br>
+<input type="email" id="email" placeholder="Enter Email"><br>
 
 <input type="submit" value="Send">
 
 </form>
+
+</div>
 
 </body>
 </html>
